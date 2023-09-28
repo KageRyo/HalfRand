@@ -27,6 +27,7 @@ $ git clone https://github.com/KageRyo/HalfRand.git
 ```
 $ python main.py
 ```
+<img width="482" alt="image" src="https://github.com/KageRyo/HalfRand/assets/36478298/05386e12-542a-4c76-a316-9587e86c2eda">
 
 ## 貢獻
 
