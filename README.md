@@ -5,6 +5,7 @@
 **Small, reproducible pseudo-random sequences with smooth, bounded changes.**
 
 [![CI](https://github.com/KageRyo/HalfRand/actions/workflows/ci.yml/badge.svg)](https://github.com/KageRyo/HalfRand/actions/workflows/ci.yml)
+[![PyPI version](https://img.shields.io/pypi/v/halfrand?logo=pypi&logoColor=white)](https://pypi.org/project/halfrand/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
@@ -30,7 +31,7 @@ animations, and tests that need natural-looking variation.
 
 ## 📦 Installation
 
-Install the latest release when it is available on PyPI:
+Install the latest release from [PyPI](https://pypi.org/project/halfrand/):
 
 ```bash
 python -m pip install halfrand
