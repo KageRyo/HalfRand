@@ -20,9 +20,19 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
-      - run: |
-          python -m pip install --only-binary :all: --editable .
+      - name: Install locked build tools
+        run: |
+          python -m pip install --only-binary :all: --require-hashes -r .github/requirements/ci.txt
+      - name: Build distributions without fetching isolated build dependencies
+        run: python -m build --no-isolation
+      - name: Install the built local wheel
+        run: |
+          python - <<'PYCODE' > "$RUNNER_TEMP/halfrand-wheel.txt"
+          from hashlib import sha256
+          from pathlib import Path
+
+          for wheel in Path("dist").glob("*.whl"):
+              print(f"{wheel.resolve().as_uri()} --hash=sha256:{sha256(wheel.read_bytes()).hexdigest()}")
+          PYCODE
+          python -m pip install --only-binary :all: --require-hashes --no-index --no-deps -r "$RUNNER_TEMP/halfrand-wheel.txt"
       - run: python -m unittest discover -s tests -v
-      - run: |
-          python -m pip install --only-binary :all: build
-      - run: python -m build
