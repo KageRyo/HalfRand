@@ -21,8 +21,8 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: |
-          python -m pip install --only-binary=:all: --editable .
+          python -m pip install --only-binary :all: --editable .
       - run: python -m unittest discover -s tests -v
       - run: |
-          python -m pip install --only-binary=:all: build
+          python -m pip install --only-binary :all: build
       - run: python -m build
